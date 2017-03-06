@@ -24,51 +24,52 @@ public class Patient {
     private int age;
     private String sex;
     private Date DOB;
-   
-    //default constructor. we're not passing any arguments as of yet
-    public void patient(){
     
+    /*reference variable to associate patient with a triage. Read below for more 
+    documentation on reference variables*/
+    private Triage triage;
+   
+    //default constructor. Every time a patient is created all six fields are required 
+    public Patient(int anID, String aFirstName, String aLastName, int myAge, String mySex, Date myDob ){
+    
+        this.id=anID;
+        this.firstName=aFirstName;
+        this.lastName=aLastName;
+        this.sex=mySex;
+        this.age=myAge;
+        this.DOB=myDob;
     };
     
     // Accessor methods mainly getters and setters
     //getters
-    public int getId(){
-        return id;
-    }
-    public String getFname(){
-        return firstName;
-    }
-    public String getLname(){
-        return lastName;
-    }
-    public int getAge(){
-        return age;
-    }
-    public String getSex(){
-        return sex;
-    }
-    public Date getDate(){
-        return DOB;
+    public int getId(){return id;}
+    public String getFname(){return firstName;}
+    public String getLname(){return lastName;}
+    public int getAge(){return age;}
+    public String getSex(){return sex;}
+    public Date getDate(){return DOB;}
+    
+    //Returns details of the client
+    public String info()
+    {
+        String info;
+        info= "Patient Name" +getFname() +getLname()+
+                "Patient age" +getAge()+
+                "Patient Sex" +getSex()+
+                "Patient Date Of Birth" +getDate();
+        return info;
     }
     
-    //setters
-    public void setId(int anId ){
-        this.id=anId;
-    }
-    public void setFname(String aFname ){
-        this.firstName=aFname;
-    }
-    public void setLname(String aLname ){
-        this.lastName=aLname;
-    }
-    public void setAge(int no ){
-        this.age=no;
-    }
-    public void setSex(String gender ){
-        this.sex=gender;
-    }
-    public void setDOB(Date myDob ){
-        this.DOB=myDob;
-    }
-    
+    //Setter for the triage class
+        public void setTriage(Triage aTriage)
+        {
+            triage=aTriage;
+        }
 }
+/*              REFERENCE VARIABLE
+*        An Object is an instance of a Class, it is stored some where in memory
+*        A reference is what is used to describe the pointer to the memory location where the Object resides.
+*        A variable is a means by which you can access that memory location within your application
+
+*        So a reference variable is used to locate memory of an object, it may me a class
+*/

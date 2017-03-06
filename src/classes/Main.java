@@ -5,12 +5,18 @@
  */
 package classes;
 
+import java.util.Date;
+
 /**
  *
  * @author amshel
  */
 public class Main {
     public static void main(String[] args) {
-        }
+        Date date=new Date();
+        Patient p1=new Patient(0, "samuel", "njoroge", 24, "male", date);
+    
+        p1.info();
+    }
     
 }
